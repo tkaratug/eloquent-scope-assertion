@@ -26,16 +26,6 @@
             "Tkaratug\\EloquentScopeAssertion\\": "src"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Tkaratug\\EloquentScopeAssertion\\Tests\\": "tests"
-        }
-    },
-    "scripts": {
-        "analyse": "vendor/bin/phpstan analyse",
-        "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage"
-    },
     "config": {
         "sort-packages": true
     },
