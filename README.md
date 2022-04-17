@@ -19,7 +19,7 @@ Let's say you have a complicated conditional query for Orders that is imported t
 
 - Get the orders that have not been paid.
 - Sorted by creation date descending.
-- They should be a valid status state.
+- The list could go on.
 
 The above query constraints should be tested at the feature level, so that you have tests like so;
 - `user_can_get_orders`
@@ -63,10 +63,12 @@ Then add the `HasScopeWatcher` trait in your models to be able to assert its sco
 ```php
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Tkaratug\LaravelScopeAssertion\Traits\HasScopeWatcher;
 
 class Order extends Model
 {
+    use HasFactory;
     use HasScopeWatcher;
 
     public function scopeUnpaid(Builder $query): Builder
@@ -81,7 +83,7 @@ class Order extends Model
 }
 ```
 
-Let's say you want to see only paid orders sorted by creation date descending.
+Let's say you want to see only unpaid orders sorted by creation date descending.
 
 The `OrderController` should be like this;
 ```php
@@ -102,7 +104,7 @@ public OrderController extends Controller
 }
 ```
 
-Now you can simpify your test coverage in `OrderControllerTest` like so;
+Now you can simplify your test coverage in `OrderControllerTest` like so;
 
 ```php
 use App\Models\Order;
