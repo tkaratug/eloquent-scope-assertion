@@ -15,9 +15,9 @@ trait HasScopeAssertion
 
         Event::assertDispatched(ModelScopeCalled::class);
         Event::assertDispatched(function (ModelScopeCalled $event) use (&$triggeredScopes) {
-          $triggeredScopes[$event->model][] = $event->scope;
+            $triggeredScopes[$event->model][] = $event->scope;
 
-          return true;
+            return true;
         });
 
         $this->assertTrue(in_array($scope, $triggeredScopes[$model]));
