@@ -1,4 +1,4 @@
-# Laravel Scope Assertion
+# Eloquent Scope Assertion
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tkaratug/eloquent-scope-assertion.svg?style=flat-square)](https://packagist.org/packages/tkaratug/eloquent-scope-assertion)
 [![Total Downloads](https://img.shields.io/packagist/dt/tkaratug/eloquent-scope-assertion.svg?style=flat-square)](https://packagist.org/packages/tkaratug/eloquent-scope-assertion)
@@ -40,7 +40,7 @@ Since the `ModelScopeCalled` event is triggered when a named scope is called, yo
 
 ```php
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use Tkaratug\LaravelScopeAssertion\Traits\HasScopeAssertion;
+use Tkaratug\EloquentScopeAssertion\Traits\HasScopeAssertion;
 use Illuminate\Support\Facades\Event;
 use App\Events\ModelScopeCalled;
 
@@ -64,7 +64,7 @@ Then add the `HasScopeWatcher` trait in your models to be able to assert its sco
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Tkaratug\LaravelScopeAssertion\Traits\HasScopeWatcher;
+use Tkaratug\EloquentScopeAssertion\Traits\HasScopeWatcher;
 
 class Order extends Model
 {
@@ -138,7 +138,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
