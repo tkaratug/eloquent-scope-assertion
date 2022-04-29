@@ -14,6 +14,6 @@ trait HasScopeWatcher
             event(new ModelScopeCalled($scope, get_class($this)));
         }
 
-        return $this->{'scope'.ucfirst($scope)}(...$parameters);
+        return parent::callNamedScope($scope, $parameters);
     }
 }
