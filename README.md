@@ -114,13 +114,13 @@ class OrderControllerTest extends TestCase
 {
     public function user_can_get_unpaid_orders_sorted_by_creation_date_descenting(): void
     {
-        $users = User::factory()
-                     ->unpaid()
-                     ->createMany([
-                        ['created_at' => Carbon::parse('7 days ago')],
-                        ['created_at' => Carbon::parse('14 days ago')],
-                        ['created_at' => Carbon::parse('21 days ago')],
-                    ]);
+        Order::factory()
+             ->unpaid()
+             ->createMany([
+                 ['created_at' => Carbon::parse('7 days ago')],
+                 ['created_at' => Carbon::parse('14 days ago')],
+                 ['created_at' => Carbon::parse('21 days ago')],
+             ]);
 
         $response = $this->get(route('orders.index'));
 
@@ -130,6 +130,13 @@ class OrderControllerTest extends TestCase
         $this->assertScopeCalled('createdAtDesc', Order::class);
     }
 }
+```
+
+If you want to assert how many times a query scope is called, just add a number as third parameter to `assertScopeCalled()` method.
+
+```php
+// The `unpaid` scope must have been called 2 times in tested code.
+$this->assertScopeCalled('unpaid', Order::class, 2);
 ```
 
 ## Changelog

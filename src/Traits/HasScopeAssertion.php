@@ -9,7 +9,7 @@ use Tkaratug\EloquentScopeAssertion\Events\ModelScopeCalled;
 
 trait HasScopeAssertion
 {
-    public function assertScopeCalled(string $scope, string $model)
+    public function assertScopeCalled(string $scope, string $model, ?int $times = null)
     {
         $triggeredScopes = [];
 
@@ -21,5 +21,12 @@ trait HasScopeAssertion
         });
 
         $this->assertTrue(in_array($scope, $triggeredScopes[$model]));
+
+        if (!is_null($times)) {
+            $this->assertCount(
+                $times,
+                array_filter($triggeredScopes[$model], fn ($item) => $item === $scope)
+            );
+        }
     }
 }
