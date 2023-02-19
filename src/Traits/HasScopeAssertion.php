@@ -20,7 +20,7 @@ trait HasScopeAssertion
             return true;
         });
 
-        $this->assertTrue(in_array($scope, $triggeredScopes[$model]));
+        $this->assertContains($scope, $triggeredScopes[$model]);
 
         if (!is_null($times)) {
             $this->assertCount(
